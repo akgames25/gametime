@@ -1,0 +1,97 @@
+<html>
+<head><title>Contact Page</title>
+<style>
+    
+   
+#auth { max-width: 350px; }
+#mobile { max-width: 454px; }
+
+#mobile img {
+    height: 618px;
+}
+ 
+    .login-with-fb,
+form { width: 100%; }
+
+.register,
+form { padding: 30px 20px; }
+
+.login-with-fb { padding: 30px 20px 20px 20px; }
+
+form .sr-only { display: none; }
+
+    form input {
+    background-color: #fafafa;
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    color: #808080;
+    margin-bottom: 8px;
+    padding: 10px 10px;
+    width: 100%;
+}
+
+form input::placeholder {
+    color: #808080;
+}
+
+form input:focus {
+    border: 1px solid #808080;
+    outline: none;
+}
+
+form button {
+    background-color: #0095f6;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+    height: 35px;
+    margin-top: 10px;
+    width: 70%;
+}
+
+    </style>
+
+
+<body>
+      <main class="flex align-items-center justify-content-center">
+        <section id="mobile" class="flex">
+        </section>
+        <section id="auth" class="flex direction-column">
+         
+                <form name="akash">
+                    
+                    <input name="name" placeholder="Name" required />
+                    <input name="phone"  placeholder="Mobile Number" required />
+                    <input name="email"  placeholder="Email" required />
+                    <input name="message"  placeholder="Message" required />
+
+                    <button  type="submit" onclick="window.location.replace = "tq.html"  >Send Message</button>
+                </form>
+                <font color="Green" size="7"><p id="response_message"></p> </font>
+
+<script>
+  const scriptURL = '   https://script.google.com/macros/s/AKfycbz8s2kIrZ-NInOKVr_5Ah8xaZYo_w8psKuoRk8PtWjyKC76GXgADhKo5YsVbvE6fyWc/exec   '
+  const form = document.forms['akash']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    var response_message = document.getElementById("response_message");
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => response_message.innerHTML = "Message Sent Successfull Go Back To Homepage!" )
+      .catch(error => response_message.innerHTML = "Error!")
+  })
+
+</script>
+<script>
+    function redirect(){
+window.location.replace("  tq.html   ");
+}
+</script>
+
+
+</body>
+
+
+
+</head>
+</html>
